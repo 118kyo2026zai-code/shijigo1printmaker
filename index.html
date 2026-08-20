@@ -184,7 +184,6 @@ button{
 ========================================================= */
 
 .studentPage{
-
     width:297mm;
     height:210mm;
 
@@ -207,7 +206,6 @@ button{
 ========================================================= */
 
 .studentLayout{
-
     width:100%;
     height:100%;
 
@@ -220,7 +218,6 @@ button{
 ========================================================= */
 
 .studentSidebar{
-
     position:absolute;
 
     top:0;
@@ -245,7 +242,6 @@ button{
 ========================================================= */
 
 .sideTitle{
-
     background:var(--brand) !important;
     color:#fff !important;
 
@@ -276,7 +272,6 @@ button{
 ========================================================= */
 
 .sideLevel{
-
     background:var(--brand) !important;
     color:#fff !important;
 
@@ -307,7 +302,6 @@ button{
 ========================================================= */
 
 .sideName{
-
     width:20mm;
 
     margin-top:7mm;
@@ -332,13 +326,11 @@ button{
 ========================================================= */
 
 .sideNameBlank{
-
     display:block;
 
     margin-top:3mm;
 
     width:20mm;
-
     min-height:48mm;
 
     writing-mode:vertical-rl;
@@ -346,7 +338,6 @@ button{
     text-align:center;
 
     font-size:13px;
-
     font-weight:normal;
 
     color:#333;
@@ -360,7 +351,6 @@ button{
 ========================================================= */
 
 .copyright{
-
     position:absolute;
 
     right:7mm;
@@ -379,7 +369,6 @@ button{
 }
 
 .copyright img{
-
     display:block;
 
     width:13mm;
@@ -397,7 +386,6 @@ button{
 ========================================================= */
 
 .studentProblems{
-
     width:calc(100% - 30mm);
 
     height:190mm;
@@ -419,7 +407,6 @@ button{
 ========================================================= */
 
 .studentProblem{
-
     min-width:0;
 
     width:100%;
@@ -447,7 +434,6 @@ button{
 ========================================================= */
 
 .problemHeader{
-
     height:17mm;
 
     flex:none;
@@ -466,7 +452,6 @@ button{
 ========================================================= */
 
 .problemNumber{
-
     width:10mm;
     height:10mm;
 
@@ -502,7 +487,6 @@ button{
 ========================================================= */
 
 .problemContent{
-
     flex:1;
 
     min-height:0;
@@ -520,7 +504,6 @@ button{
 ========================================================= */
 
 .bodyArea{
-
     width:48%;
 
     border-left:none;
@@ -544,7 +527,6 @@ button{
 ========================================================= */
 
 .sectionHeading{
-
     flex:0 0 auto;
 
     display:inline-block;
@@ -572,7 +554,6 @@ button{
 ========================================================= */
 
 .verticalText{
-
     flex:1;
 
     min-height:0;
@@ -616,7 +597,6 @@ button{
 ========================================================= */
 
 .questionArea{
-
     width:30%;
 
     padding-left:4mm;
@@ -640,7 +620,6 @@ button{
 ========================================================= */
 
 .questionArea .sectionHeading{
-
     writing-mode:horizontal-tb;
 
     position:relative;
@@ -656,7 +635,6 @@ button{
 ========================================================= */
 
 .questionText{
-
     flex:1;
 
     min-height:0;
@@ -696,12 +674,10 @@ button{
 
 
 /* =========================================================
-   答え
-   レベル1専用
+   答えエリア
 ========================================================= */
 
 .answerArea{
-
     width:22%;
 
     display:flex;
@@ -719,66 +695,47 @@ button{
 
 .answerArea::before,
 .answerArea::after{
-
     content:none !important;
-
     display:none !important;
 }
 
 
 /* =========================================================
-   「答え」ラベルは表示しない
-========================================================= */
-
-.answerLabel{
-    display:none !important;
-}
-
-
-/* =========================================================
-   レベル1用10マス
-   答えを書くためのスペース
+   10マス
+   ★ここを縦10個にする
 ========================================================= */
 
 .answerGrid{
-
     display:flex;
 
-    gap:0;
+    flex-direction:column;
 
-    flex-direction:row;
+    gap:0;
 
     border:1px solid #8d75a9;
 
     flex:none;
 
-    margin-top:8mm;
+    margin-top:6mm;
 }
 
-.answerColumn{
 
-    display:flex;
-
-    flex-direction:column;
-
-    flex:none;
-}
+/* =========================================================
+   マス
+========================================================= */
 
 .answerCell{
-
     width:8mm;
     height:8mm;
 
-    border-right:1px solid #8d75a9;
+    border-right:0;
     border-bottom:1px solid #8d75a9;
 
     flex:none;
 }
 
-.answerColumn:last-child .answerCell{
-    border-right:0;
-}
 
+/* 一番下だけ横線を消す */
 .answerCell:last-child{
     border-bottom:0;
 }
@@ -789,7 +746,6 @@ button{
 ========================================================= */
 
 .teacherPage{
-
     width:297mm;
     height:210mm;
 
@@ -808,8 +764,12 @@ button{
     overflow:hidden;
 }
 
-.teacherHeader{
 
+/* =========================================================
+   教師用ヘッダー
+========================================================= */
+
+.teacherHeader{
     height:20mm;
 
     border-bottom:2px solid var(--brand);
@@ -818,7 +778,6 @@ button{
 }
 
 .teacherTitle{
-
     color:var(--brand);
 
     font-size:23px;
@@ -827,7 +786,6 @@ button{
 }
 
 .teacherLevel{
-
     margin-top:2mm;
 
     color:#777;
@@ -837,15 +795,12 @@ button{
 
 
 /* =========================================================
-   教師用問題エリア
-   ①左上
-   ②右上
-   ③左下
-   身につけたい力 右下
+   教師用問題
+   ①左上　②右上
+   ③左下　身につけたい力右下
 ========================================================= */
 
 .teacherProblems{
-
     height:163mm;
 
     display:grid;
@@ -859,11 +814,10 @@ button{
 
 
 /* =========================================================
-   教師用問題
+   教師用問題カード
 ========================================================= */
 
 .teacherProblem{
-
     border:1px solid #d5d5d5;
 
     border-top:4px solid var(--brand);
@@ -873,8 +827,12 @@ button{
     overflow:hidden;
 }
 
-.teacherProblemTitle{
 
+/* =========================================================
+   教師用問題タイトル
+========================================================= */
+
+.teacherProblemTitle{
     color:var(--brand);
 
     font-size:17px;
@@ -884,8 +842,12 @@ button{
     margin-bottom:5mm;
 }
 
-.teacherProblemText{
 
+/* =========================================================
+   教師用本文
+========================================================= */
+
+.teacherProblemText{
     font-family:
         "UD デジタル 教科書体",
         "UD Digi Kyokasho",
@@ -904,21 +866,14 @@ button{
 
 /* =========================================================
    このプリントで身につけたい力
-   右下に配置
+   右下
 ========================================================= */
 
 .skillGuide{
-
     grid-column:2;
     grid-row:2;
 
-    align-self:start;
-
-    margin-top:-2mm;
-
-    min-height:74mm;
-
-    padding:6mm 7mm;
+    padding:5mm 6mm;
 
     border:2px solid var(--brand);
 
@@ -927,10 +882,24 @@ button{
     background:#faf7fd;
 
     overflow:hidden;
+
+    /*
+       右下の範囲の中で、
+       上側に少し寄せる
+    */
+    align-self:start;
+
+    margin-top:0;
+
+    height:72mm;
 }
 
-.skillGuideTitle{
 
+/* =========================================================
+   身につけたい力タイトル
+========================================================= */
+
+.skillGuideTitle{
     color:var(--brand);
 
     font-size:16px;
@@ -944,8 +913,12 @@ button{
     border-bottom:1px solid #d8c8e7;
 }
 
-.skillGuideLevel{
 
+/* =========================================================
+   レベル
+========================================================= */
+
+.skillGuideLevel{
     color:#F28C28;
 
     font-size:13px;
@@ -955,8 +928,12 @@ button{
     margin-bottom:2mm;
 }
 
-.skillGuideText{
 
+/* =========================================================
+   説明文
+========================================================= */
+
+.skillGuideText{
     font-size:11.5px;
 
     line-height:1.7;
@@ -965,7 +942,6 @@ button{
 }
 
 .skillGuideText strong{
-
     color:#5A258F;
 }
 
@@ -975,7 +951,6 @@ button{
 ========================================================= */
 
 .teacherFooter{
-
     position:absolute;
 
     left:15mm;
@@ -1019,14 +994,12 @@ button{
     }
 
     .studentPage{
-
         page-break-after:always;
 
         page-break-inside:avoid;
     }
 
     .teacherPage{
-
         page-break-before:always;
 
         page-break-inside:avoid;
@@ -1304,42 +1277,36 @@ button{
         </div>
 
 
-        <!--
-            ここを4マスのグリッドにする。
-
-            左上：問題①
-            右上：問題②
-            左下：問題③
-            右下：身につけたい力
-        -->
-
         <div
             class="teacherProblems"
             id="teacherProblems"
+        ></div>
+
+
+        <!-- ===============================
+             このプリントで身につけたい力
+        ================================ -->
+
+        <div
+            class="skillGuide"
+            id="skillGuide"
         >
 
-            <div
-                class="skillGuide"
-                id="skillGuide"
-            >
-
-                <div class="skillGuideTitle">
-                    このプリントで身につけたい力
-                </div>
-
-                <div
-                    class="skillGuideLevel"
-                    id="skillGuideLevel"
-                >
-                    レベル易
-                </div>
-
-                <div
-                    class="skillGuideText"
-                    id="skillGuideText"
-                ></div>
-
+            <div class="skillGuideTitle">
+                このプリントで身につけたい力
             </div>
+
+            <div
+                class="skillGuideLevel"
+                id="skillGuideLevel"
+            >
+                レベル易
+            </div>
+
+            <div
+                class="skillGuideText"
+                id="skillGuideText"
+            ></div>
 
         </div>
 
@@ -1560,6 +1527,7 @@ function parseProblem(section){
 
 /* =========================================================
    レベル1用10マス
+   ★縦に10個
 ========================================================= */
 
 function createAnswerGrid(){
@@ -1570,8 +1538,9 @@ function createAnswerGrid(){
     grid.className =
         "answerGrid";
 
+
     /*
-       10マスを横一列で作成。
+       10マスを縦方向に作成。
        文字数を指定するものではなく、
        答えを書くためのスペースとして使用。
     */
@@ -1718,6 +1687,11 @@ function createStudentProblem(number,data){
     answerArea.className =
         "answerArea";
 
+
+    /*
+       「答え」という文字は入れない。
+       マスだけを配置する。
+    */
 
     answerArea.appendChild(
         createAnswerGrid()
@@ -1988,29 +1962,12 @@ function makePrint(){
 
     /* =====================================================
        教師用
-       ① → 左上
-       ② → 右上
-       ③ → 左下
-       身につけたい力 → 右下
     ===================================================== */
 
     const teacherProblems =
         document.getElementById(
             "teacherProblems"
         );
-
-
-    /*
-       skillGuideだけ先に退避。
-       中身を消してから、
-       ①②③ → skillGuide の順に入れる。
-    */
-
-    const skillGuide =
-        document.getElementById(
-            "skillGuide"
-        );
-
 
     teacherProblems.innerHTML = "";
 
@@ -2042,17 +1999,6 @@ function makePrint(){
 
             }
         );
-
-
-    /*
-       4番目に身につけたい力を入れる。
-       CSSのgrid-column / grid-rowで
-       右下に固定される。
-    */
-
-    teacherProblems.appendChild(
-        skillGuide
-    );
 }
 
 
