@@ -727,7 +727,7 @@ button{
 
 
 /* =========================================================
-   「答え」ラベルは使用しない
+   「答え」ラベルは表示しない
 ========================================================= */
 
 .answerLabel{
@@ -737,23 +737,31 @@ button{
 
 /* =========================================================
    レベル1用10マス
-   答えの文字数を指定するものではなく
-   「答えを書くスペース」として使用
+   答えを書くためのスペース
 ========================================================= */
 
 .answerGrid{
 
     display:flex;
 
-    flex-direction:column;
-
     gap:0;
+
+    flex-direction:row;
 
     border:1px solid #8d75a9;
 
     flex:none;
 
-    margin-top:3mm;
+    margin-top:8mm;
+}
+
+.answerColumn{
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:none;
 }
 
 .answerCell{
@@ -761,10 +769,14 @@ button{
     width:8mm;
     height:8mm;
 
-    border-right:0;
+    border-right:1px solid #8d75a9;
     border-bottom:1px solid #8d75a9;
 
     flex:none;
+}
+
+.answerColumn:last-child .answerCell{
+    border-right:0;
 }
 
 .answerCell:last-child{
@@ -825,25 +837,30 @@ button{
 
 
 /* =========================================================
-   教師用問題
-   右側に「身につけたい力」を置くため
-   問題カードは左側だけを使用
+   教師用問題エリア
+   ①左上
+   ②右上
+   ③左下
+   身につけたい力 右下
 ========================================================= */
 
 .teacherProblems{
 
-    width:calc(100% - 72mm);
-
-    height:155mm;
+    height:163mm;
 
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr 1fr;
 
     grid-template-rows:1fr 1fr;
 
     gap:8mm;
 }
+
+
+/* =========================================================
+   教師用問題
+========================================================= */
 
 .teacherProblem{
 
@@ -887,22 +904,21 @@ button{
 
 /* =========================================================
    このプリントで身につけたい力
-   右下エリア・縦長
+   右下に配置
 ========================================================= */
 
 .skillGuide{
 
-    position:absolute;
+    grid-column:2;
+    grid-row:2;
 
-    right:15mm;
+    align-self:start;
 
-    top:43mm;
+    margin-top:-2mm;
 
-    width:62mm;
+    min-height:74mm;
 
-    height:140mm;
-
-    padding:5mm 6mm;
+    padding:6mm 7mm;
 
     border:2px solid var(--brand);
 
@@ -911,8 +927,6 @@ button{
     background:#faf7fd;
 
     overflow:hidden;
-
-    z-index:5;
 }
 
 .skillGuideTitle{
@@ -928,8 +942,6 @@ button{
     padding-bottom:2mm;
 
     border-bottom:1px solid #d8c8e7;
-
-    text-align:center;
 }
 
 .skillGuideLevel{
@@ -940,16 +952,14 @@ button{
 
     font-weight:bold;
 
-    margin-bottom:3mm;
-
-    text-align:center;
+    margin-bottom:2mm;
 }
 
 .skillGuideText{
 
     font-size:11.5px;
 
-    line-height:1.75;
+    line-height:1.7;
 
     color:#444;
 }
@@ -1207,8 +1217,6 @@ button{
 </div>
 
 
-
-
 <!-- =====================================================
      印刷領域
 ========================================================= -->
@@ -1274,8 +1282,6 @@ button{
     </div>
 
 
-
-
     <!-- ===============================
          教師用
     ================================= -->
@@ -1298,36 +1304,42 @@ button{
         </div>
 
 
+        <!--
+            ここを4マスのグリッドにする。
+
+            左上：問題①
+            右上：問題②
+            左下：問題③
+            右下：身につけたい力
+        -->
+
         <div
             class="teacherProblems"
             id="teacherProblems"
-        ></div>
-
-
-        <!-- ===============================
-             このプリントで身につけたい力
-        ================================ -->
-
-        <div
-            class="skillGuide"
-            id="skillGuide"
         >
 
-            <div class="skillGuideTitle">
-                このプリントで身につけたい力
-            </div>
-
             <div
-                class="skillGuideLevel"
-                id="skillGuideLevel"
+                class="skillGuide"
+                id="skillGuide"
             >
-                レベル易
-            </div>
 
-            <div
-                class="skillGuideText"
-                id="skillGuideText"
-            ></div>
+                <div class="skillGuideTitle">
+                    このプリントで身につけたい力
+                </div>
+
+                <div
+                    class="skillGuideLevel"
+                    id="skillGuideLevel"
+                >
+                    レベル易
+                </div>
+
+                <div
+                    class="skillGuideText"
+                    id="skillGuideText"
+                ></div>
+
+            </div>
 
         </div>
 
@@ -1339,8 +1351,6 @@ button{
     </div>
 
 </div>
-
-
 
 
 <script>
@@ -1560,9 +1570,8 @@ function createAnswerGrid(){
     grid.className =
         "answerGrid";
 
-
     /*
-       10マスを縦に作成。
+       10マスを横一列で作成。
        文字数を指定するものではなく、
        答えを書くためのスペースとして使用。
     */
@@ -1709,11 +1718,6 @@ function createStudentProblem(number,data){
     answerArea.className =
         "answerArea";
 
-
-    /*
-       「答え」という文字は表示しない。
-       マス目だけを置く。
-    */
 
     answerArea.appendChild(
         createAnswerGrid()
@@ -1984,12 +1988,29 @@ function makePrint(){
 
     /* =====================================================
        教師用
+       ① → 左上
+       ② → 右上
+       ③ → 左下
+       身につけたい力 → 右下
     ===================================================== */
 
     const teacherProblems =
         document.getElementById(
             "teacherProblems"
         );
+
+
+    /*
+       skillGuideだけ先に退避。
+       中身を消してから、
+       ①②③ → skillGuide の順に入れる。
+    */
+
+    const skillGuide =
+        document.getElementById(
+            "skillGuide"
+        );
+
 
     teacherProblems.innerHTML = "";
 
@@ -2021,6 +2042,17 @@ function makePrint(){
 
             }
         );
+
+
+    /*
+       4番目に身につけたい力を入れる。
+       CSSのgrid-column / grid-rowで
+       右下に固定される。
+    */
+
+    teacherProblems.appendChild(
+        skillGuide
+    );
 }
 
 
