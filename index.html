@@ -53,6 +53,7 @@ body{
 }
 
 
+
 /* =========================================================
    編集画面
 ========================================================= */
@@ -170,6 +171,7 @@ button{
 }
 
 
+
 /* =========================================================
    印刷領域
 ========================================================= */
@@ -177,6 +179,7 @@ button{
 .printArea{
     display:none;
 }
+
 
 
 /* =========================================================
@@ -202,6 +205,7 @@ button{
 }
 
 
+
 /* =========================================================
    生徒用メインレイアウト
 ========================================================= */
@@ -213,6 +217,7 @@ button{
 
     position:relative;
 }
+
 
 
 /* =========================================================
@@ -238,6 +243,7 @@ button{
 
     z-index:10;
 }
+
 
 
 /* =========================================================
@@ -271,6 +277,7 @@ button{
 }
 
 
+
 /* =========================================================
    レベル
 ========================================================= */
@@ -302,6 +309,7 @@ button{
 }
 
 
+
 /* =========================================================
    名前
 ========================================================= */
@@ -325,6 +333,7 @@ button{
 
     flex:none;
 }
+
 
 
 /* =========================================================
@@ -353,6 +362,7 @@ button{
 
     border:none !important;
 }
+
 
 
 /* =========================================================
@@ -392,6 +402,7 @@ button{
 }
 
 
+
 /* =========================================================
    問題エリア
 ========================================================= */
@@ -412,6 +423,7 @@ button{
 
     direction:rtl;
 }
+
 
 
 /* =========================================================
@@ -442,6 +454,7 @@ button{
 }
 
 
+
 /* =========================================================
    問題番号ヘッダー
 ========================================================= */
@@ -459,6 +472,7 @@ button{
 
     border-bottom:1px solid #d8cee2;
 }
+
 
 
 /* =========================================================
@@ -497,6 +511,7 @@ button{
 }
 
 
+
 /* =========================================================
    問題内部
 ========================================================= */
@@ -513,6 +528,7 @@ button{
 
     padding:4mm 4mm 5mm 4mm;
 }
+
 
 
 /* =========================================================
@@ -537,6 +553,7 @@ button{
 
     flex-shrink:0;
 }
+
 
 
 /* =========================================================
@@ -565,6 +582,7 @@ button{
 
     writing-mode:horizontal-tb;
 }
+
 
 
 /* =========================================================
@@ -611,6 +629,7 @@ button{
 }
 
 
+
 /* =========================================================
    問い
 ========================================================= */
@@ -635,6 +654,7 @@ button{
 }
 
 
+
 /* =========================================================
    問い見出し
 ========================================================= */
@@ -649,6 +669,7 @@ button{
 
     transform:translateX(3mm);
 }
+
 
 
 /* =========================================================
@@ -695,6 +716,7 @@ button{
 }
 
 
+
 /* =========================================================
    答え
    レベル1専用
@@ -726,6 +748,7 @@ button{
 }
 
 
+
 /* =========================================================
    答えラベル
 ========================================================= */
@@ -752,8 +775,10 @@ button{
 }
 
 
+
 /* =========================================================
    レベル1用10マス
+   縦10マス
    ※文字数を指定するものではなく
      「答えを書くスペース」として使用
 ========================================================= */
@@ -764,7 +789,7 @@ button{
 
     gap:0;
 
-    flex-direction:row;
+    flex-direction:column;
 
     border:1px solid #8d75a9;
 
@@ -773,33 +798,21 @@ button{
     margin-top:0;
 }
 
-.answerColumn{
-
-    display:flex;
-
-    flex-direction:column;
-
-    flex:none;
-}
-
 .answerCell{
 
     width:8mm;
     height:8mm;
 
-    border-right:1px solid #8d75a9;
+    border-right:0;
     border-bottom:1px solid #8d75a9;
 
     flex:none;
 }
 
-.answerColumn:last-child .answerCell{
-    border-right:0;
-}
-
 .answerCell:last-child{
     border-bottom:0;
 }
+
 
 
 /* =========================================================
@@ -852,6 +865,7 @@ button{
 
     font-size:11px;
 }
+
 
 
 /* =========================================================
@@ -911,16 +925,23 @@ button{
 }
 
 
+
 /* =========================================================
    このプリントで身につけたい力
+   教師用ページ右下に独立配置
 ========================================================= */
 
 .skillGuide{
 
-    grid-column:2;
-    grid-row:2;
+    position:absolute;
 
-    padding:5mm 6mm;
+    right:15mm;
+    bottom:13mm;
+
+    width:125mm;
+    height:38mm;
+
+    padding:4mm 6mm;
 
     border:2px solid var(--brand);
 
@@ -929,6 +950,8 @@ button{
     background:#faf7fd;
 
     overflow:hidden;
+
+    z-index:5;
 }
 
 .skillGuideTitle{
@@ -972,6 +995,7 @@ button{
 }
 
 
+
 /* =========================================================
    教師用フッター
 ========================================================= */
@@ -992,6 +1016,7 @@ button{
 
     font-size:7px;
 }
+
 
 
 /* =========================================================
@@ -1064,7 +1089,9 @@ button{
 </head>
 
 
+
 <body>
+
 
 
 <!-- =====================================================
@@ -1082,6 +1109,7 @@ button{
     </p>
 
 
+
     <div class="panel">
 
         <h2 class="panelTitle">
@@ -1096,6 +1124,7 @@ button{
             1問ずつ入力する必要はありません。
 
         </div>
+
 
 
         <textarea
@@ -1160,6 +1189,7 @@ button{
     </div>
 
 
+
     <div class="panel">
 
         <h2 class="panelTitle">
@@ -1185,6 +1215,7 @@ button{
         </div>
 
     </div>
+
 
 
     <div class="panel">
@@ -1220,6 +1251,8 @@ button{
 
 
 
+
+
 <!-- =====================================================
      印刷領域
 ========================================================= -->
@@ -1227,9 +1260,10 @@ button{
 <div class="printArea">
 
 
+
     <!-- ===============================
          生徒用
-    ================================ -->
+    ================================= -->
 
     <div class="studentPage">
 
@@ -1239,6 +1273,7 @@ button{
                 class="studentProblems"
                 id="studentProblems"
             ></div>
+
 
 
             <!-- =========================
@@ -1273,6 +1308,7 @@ button{
         </div>
 
 
+
         <div class="copyright">
 
             <img
@@ -1286,9 +1322,11 @@ button{
 
 
 
+
+
     <!-- ===============================
          教師用
-    ================================ -->
+    ================================= -->
 
     <div class="teacherPage">
 
@@ -1308,15 +1346,17 @@ button{
         </div>
 
 
+
         <div
             class="teacherProblems"
             id="teacherProblems"
         ></div>
 
 
+
         <!-- ===============================
              このプリントで身につけたい力
-        ================================ -->
+        ================================= -->
 
         <div
             class="skillGuide"
@@ -1342,6 +1382,7 @@ button{
         </div>
 
 
+
         <div class="teacherFooter">
             指示語特訓プリント解説　教師用
         </div>
@@ -1352,7 +1393,10 @@ button{
 
 
 
+
+
 <script>
+
 
 
 /* =========================================================
@@ -1416,6 +1460,7 @@ const sampleText = `===問題1===
 「その本」が指しているものを本文から探します。「本」という言葉だけでなく、本文に書かれている「新しい本」まで正しく答えられるようにします。`;
 
 
+
 /* =========================================================
    レベル1
 ========================================================= */
@@ -1433,6 +1478,7 @@ const skillGuideData = {
 };
 
 
+
 /* =========================================================
    サンプル読み込み
 ========================================================= */
@@ -1447,6 +1493,7 @@ function loadSample(){
 }
 
 
+
 /* =========================================================
    テキスト整形
 ========================================================= */
@@ -1459,6 +1506,7 @@ function cleanText(text){
         .replace(/\r/g,"\n")
         .trim();
 }
+
 
 
 /* =========================================================
@@ -1509,6 +1557,7 @@ function getProblemSection(text,number){
 }
 
 
+
 /* =========================================================
    本文と問題を分離
 ========================================================= */
@@ -1557,8 +1606,10 @@ function parseProblem(section){
 }
 
 
+
 /* =========================================================
    レベル1用10マス
+   縦10マス
 ========================================================= */
 
 function createAnswerGrid(){
@@ -1570,8 +1621,9 @@ function createAnswerGrid(){
         "answerGrid";
 
 
+
     /*
-       10マスを1列で作成。
+       10マスを縦に作成。
        文字数を指定するものではなく、
        答えを書くためのスペースとして使用。
     */
@@ -1597,6 +1649,7 @@ function createAnswerGrid(){
 }
 
 
+
 /* =========================================================
    生徒用問題カード
 ========================================================= */
@@ -1610,6 +1663,7 @@ function createStudentProblem(number,data){
         "studentProblem";
 
 
+
     /* ---------- ヘッダー ---------- */
 
     const header =
@@ -1617,6 +1671,7 @@ function createStudentProblem(number,data){
 
     header.className =
         "problemHeader";
+
 
 
     const numberBox =
@@ -1629,9 +1684,11 @@ function createStudentProblem(number,data){
         number;
 
 
+
     header.appendChild(
         numberBox
     );
+
 
 
     /* ---------- 本文 ---------- */
@@ -1641,6 +1698,7 @@ function createStudentProblem(number,data){
 
     bodyArea.className =
         "bodyArea";
+
 
 
     const bodyHeading =
@@ -1653,6 +1711,7 @@ function createStudentProblem(number,data){
         "本文";
 
 
+
     const bodyText =
         document.createElement("div");
 
@@ -1661,6 +1720,7 @@ function createStudentProblem(number,data){
 
     bodyText.textContent =
         data.body;
+
 
 
     bodyArea.appendChild(
@@ -1672,6 +1732,7 @@ function createStudentProblem(number,data){
     );
 
 
+
     /* ---------- 問い ---------- */
 
     const questionArea =
@@ -1679,6 +1740,7 @@ function createStudentProblem(number,data){
 
     questionArea.className =
         "questionArea";
+
 
 
     const questionHeading =
@@ -1691,6 +1753,7 @@ function createStudentProblem(number,data){
         "問い";
 
 
+
     const questionText =
         document.createElement("div");
 
@@ -1699,6 +1762,7 @@ function createStudentProblem(number,data){
 
     questionText.textContent =
         data.question;
+
 
 
     questionArea.appendChild(
@@ -1710,6 +1774,7 @@ function createStudentProblem(number,data){
     );
 
 
+
     /* ---------- 答え ---------- */
 
     const answerArea =
@@ -1717,6 +1782,7 @@ function createStudentProblem(number,data){
 
     answerArea.className =
         "answerArea";
+
 
 
     const answerLabel =
@@ -1729,6 +1795,7 @@ function createStudentProblem(number,data){
         "答え";
 
 
+
     answerArea.appendChild(
         answerLabel
     );
@@ -1738,6 +1805,7 @@ function createStudentProblem(number,data){
     );
 
 
+
     /* ---------- 3領域 ---------- */
 
     const content =
@@ -1745,6 +1813,7 @@ function createStudentProblem(number,data){
 
     content.className =
         "problemContent";
+
 
 
     content.appendChild(
@@ -1760,6 +1829,7 @@ function createStudentProblem(number,data){
     );
 
 
+
     card.appendChild(
         header
     );
@@ -1769,8 +1839,10 @@ function createStudentProblem(number,data){
     );
 
 
+
     return card;
 }
+
 
 
 /* =========================================================
@@ -1795,6 +1867,7 @@ function getTeacherSection(text){
         )
         .trim();
 }
+
 
 
 /* =========================================================
@@ -1826,6 +1899,7 @@ function parseTeacher(text){
 }
 
 
+
 /* =========================================================
    教師用カード
 ========================================================= */
@@ -1842,6 +1916,7 @@ function createTeacherProblem(
         "teacherProblem";
 
 
+
     const title =
         document.createElement("div");
 
@@ -1852,11 +1927,13 @@ function createTeacherProblem(
         "問題" + number;
 
 
+
     const content =
         document.createElement("div");
 
     content.className =
         "teacherProblemText";
+
 
 
     content.textContent =
@@ -1868,6 +1945,7 @@ function createTeacherProblem(
             .trim();
 
 
+
     card.appendChild(
         title
     );
@@ -1877,8 +1955,10 @@ function createTeacherProblem(
     );
 
 
+
     return card;
 }
+
 
 
 /* =========================================================
@@ -1893,8 +1973,10 @@ function makePrint(){
         ).value;
 
 
+
     text =
         cleanText(text);
+
 
 
     if(!text){
@@ -1907,6 +1989,7 @@ function makePrint(){
     }
 
 
+
     /* ---------- 設定 ---------- */
 
     const title =
@@ -1916,10 +1999,12 @@ function makePrint(){
         || "指示語特訓プリント";
 
 
+
     document.querySelector(
         ".sideTitle"
     ).textContent =
         title;
+
 
 
     document.getElementById(
@@ -1928,10 +2013,12 @@ function makePrint(){
         "レベル易";
 
 
+
     document.getElementById(
         "teacherLevel"
     ).textContent =
         "レベル易";
+
 
 
     /* ---------- 身につけたい力 ---------- */
@@ -1942,15 +2029,18 @@ function makePrint(){
         skillGuideData.level;
 
 
+
     document.getElementById(
         "skillGuideText"
     ).innerHTML =
         skillGuideData.text;
 
 
+
     /* ---------- 問題数 ---------- */
 
     const problemCount = 3;
+
 
 
     /* =====================================================
@@ -1963,6 +2053,7 @@ function makePrint(){
         );
 
     studentProblems.innerHTML = "";
+
 
 
     for(
@@ -1978,15 +2069,18 @@ function makePrint(){
             );
 
 
+
         if(!section){
             continue;
         }
+
 
 
         const data =
             parseProblem(
                 section
             );
+
 
 
         studentProblems.appendChild(
@@ -1998,6 +2092,7 @@ function makePrint(){
 
         );
     }
+
 
 
     /* =====================================================
@@ -2012,10 +2107,12 @@ function makePrint(){
     teacherProblems.innerHTML = "";
 
 
+
     const teacherData =
         parseTeacher(
             text
         );
+
 
 
     teacherData
@@ -2040,6 +2137,7 @@ function makePrint(){
             }
         );
 }
+
 
 
 /* =========================================================
